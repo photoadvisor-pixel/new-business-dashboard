@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,49 +8,79 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
     </style>
 </head>
+
 <body class="bg-gray-50 text-gray-900">
 
     <!-- Header -->
     <header class="bg-white shadow-sm sticky top-0 z-10">
         <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-xl font-bold text-gray-800">🚀 SDC Business Lab</h1>
-            <span class="text-xs text-gray-500">Updated: 2026-02-10 18:34</span>
+            <span class="text-xs text-gray-500">Updated: 2026-02-10 18:38</span>
         </div>
     </header>
 
-    <!-- Summary Stats -->
+    <!-- Summary Stats / Filter -->
     <div class="max-w-4xl mx-auto px-4 py-6">
-        <div class="grid grid-cols-3 gap-4 mb-8">
-            <div class="bg-white p-4 rounded-lg shadow-sm text-center border-t-4 border-yellow-400">
-                <p class="text-xs text-gray-500 uppercase">Planning</p>
-                <p class="text-2xl font-bold">5</p>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow-sm text-center border-t-4 border-green-500">
-                <p class="text-xs text-gray-500 uppercase">PoC (検証中)</p>
-                <p class="text-2xl font-bold">0</p>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow-sm text-center border-t-4 border-blue-500">
-                <p class="text-xs text-gray-500 uppercase">Done / Go</p>
-                <p class="text-2xl font-bold">0</p>
-            </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+            <!-- Spark -->
+            <button onclick="filterProjects('spark')"
+                class="bg-white p-4 rounded-lg shadow-sm text-center border-t-4 border-yellow-400 hover:shadow-md transition group focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                <p class="text-xs text-gray-500 uppercase font-bold group-hover:text-yellow-600">⚡️ Spark</p>
+                <p class="text-[10px] text-gray-400 mb-1">思いつき</p>
+                <p class="text-2xl font-bold text-gray-800">0</p>
+            </button>
+
+            <!-- Concept -->
+            <button onclick="filterProjects('concept')"
+                class="bg-white p-4 rounded-lg shadow-sm text-center border-t-4 border-blue-400 hover:shadow-md transition group focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <p class="text-xs text-gray-500 uppercase font-bold group-hover:text-blue-600">📝 Concept</p>
+                <p class="text-[10px] text-gray-400 mb-1">机上検討レベル</p>
+                <p class="text-2xl font-bold text-gray-800">0</p>
+            </button>
+
+            <!-- MVP -->
+            <button onclick="filterProjects('mvp')"
+                class="bg-white p-4 rounded-lg shadow-sm text-center border-t-4 border-green-500 hover:shadow-md transition group focus:outline-none focus:ring-2 focus:ring-green-500">
+                <p class="text-xs text-gray-500 uppercase font-bold group-hover:text-green-600">🚀 MVP</p>
+                <p class="text-[10px] text-gray-400 mb-1">テスト販売レベル</p>
+                <p class="text-2xl font-bold text-gray-800">0</p>
+            </button>
+
+            <!-- Scale -->
+            <button onclick="filterProjects('scale')"
+                class="bg-white p-4 rounded-lg shadow-sm text-center border-t-4 border-purple-600 hover:shadow-md transition group focus:outline-none focus:ring-2 focus:ring-purple-600">
+                <p class="text-xs text-gray-500 uppercase font-bold group-hover:text-purple-700">💎 Scale</p>
+                <p class="text-[10px] text-gray-400 mb-1">事業化検討レベル</p>
+                <p class="text-2xl font-bold text-gray-800">0</p>
+            </button>
+        </div>
+
+        <div class="flex justify-end mb-4">
+            <button onclick="filterProjects('all')" class="text-xs text-gray-500 hover:text-gray-800 underline">
+                Clear Filters (Show All)
+            </button>
         </div>
 
         <!-- Projects List -->
         <h2 class="text-lg font-semibold mb-4 text-gray-700">Project List</h2>
         <div class="space-y-6">
             
-            <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 transition hover:shadow-md">
+            <div class="project-card bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 transition hover:shadow-md"
+                data-status="planning">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-2">
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                            🟡 計画中
+                        <span
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100">
+                            Unknown
                         </span>
                         <span class="text-xs text-gray-400">2026-02-10</span>
                     </div>
-                    
+
                     <h3 class="text-xl font-bold text-gray-900 mb-2">スポクリ写真館（出張撮影）</h3>
                     <p class="text-gray-600 text-sm mb-4 line-clamp-2">
                         SDC施設（テニス・ゴルフ）にて、会員様のプレー中の姿をプロカメラマンが撮影・販売するサービス。
@@ -70,16 +101,23 @@
                             </div>
                         </div>
                         <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
-                            <div style="width:20%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500 transition-all duration-500"></div>
+                            <div style="width:20%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500 transition-all duration-500">
+                            </div>
                         </div>
                     </div>
 
                     <!-- Details Accordion (Simple) -->
                     <details class="group">
-                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none text-sm text-indigo-600 hover:text-indigo-800">
+                        <summary
+                            class="flex justify-between items-center font-medium cursor-pointer list-none text-sm text-indigo-600 hover:text-indigo-800">
                             <span>View Details</span>
                             <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    viewBox="0 0 24 24" width="24">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
                             </span>
                         </summary>
                         <div class="text-gray-700 mt-4 text-sm prose prose-sm max-w-none">
@@ -110,15 +148,17 @@
                 </div>
             </div>
             
-            <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 transition hover:shadow-md">
+            <div class="project-card bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 transition hover:shadow-md"
+                data-status="planning">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-2">
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                            🟡 計画中
+                        <span
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100">
+                            Unknown
                         </span>
                         <span class="text-xs text-gray-400">2026-02-10</span>
                     </div>
-                    
+
                     <h3 class="text-xl font-bold text-gray-900 mb-2">B2B 商品撮影・広報写真研修</h3>
                     <p class="text-gray-600 text-sm mb-4 line-clamp-2">
                         地域企業や個人事業主向けに、ECサイトの商品写真やSNS広報写真を「社内で綺麗に撮る」スキルを研修するB2Bサービス。
@@ -139,16 +179,23 @@
                             </div>
                         </div>
                         <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
-                            <div style="width:0%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500 transition-all duration-500"></div>
+                            <div style="width:0%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500 transition-all duration-500">
+                            </div>
                         </div>
                     </div>
 
                     <!-- Details Accordion (Simple) -->
                     <details class="group">
-                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none text-sm text-indigo-600 hover:text-indigo-800">
+                        <summary
+                            class="flex justify-between items-center font-medium cursor-pointer list-none text-sm text-indigo-600 hover:text-indigo-800">
                             <span>View Details</span>
                             <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    viewBox="0 0 24 24" width="24">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
                             </span>
                         </summary>
                         <div class="text-gray-700 mt-4 text-sm prose prose-sm max-w-none">
@@ -178,15 +225,17 @@
                 </div>
             </div>
             
-            <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 transition hover:shadow-md">
+            <div class="project-card bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 transition hover:shadow-md"
+                data-status="planning">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-2">
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                            🟡 計画中
+                        <span
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100">
+                            Unknown
                         </span>
                         <span class="text-xs text-gray-400">2026-02-10</span>
                     </div>
-                    
+
                     <h3 class="text-xl font-bold text-gray-900 mb-2">スポサツ（子供・孫のスポーツ撮影講座）</h3>
                     <p class="text-gray-600 text-sm mb-4 line-clamp-2">
                         SDCスクール会員（保護者・祖父母）向けに、動き回る子供や孫を「プロ並みに」撮る技術を教える短期集中講座。
@@ -207,16 +256,23 @@
                             </div>
                         </div>
                         <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
-                            <div style="width:10%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500 transition-all duration-500"></div>
+                            <div style="width:10%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500 transition-all duration-500">
+                            </div>
                         </div>
                     </div>
 
                     <!-- Details Accordion (Simple) -->
                     <details class="group">
-                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none text-sm text-indigo-600 hover:text-indigo-800">
+                        <summary
+                            class="flex justify-between items-center font-medium cursor-pointer list-none text-sm text-indigo-600 hover:text-indigo-800">
                             <span>View Details</span>
                             <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    viewBox="0 0 24 24" width="24">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
                             </span>
                         </summary>
                         <div class="text-gray-700 mt-4 text-sm prose prose-sm max-w-none">
@@ -246,15 +302,17 @@
                 </div>
             </div>
             
-            <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 transition hover:shadow-md">
+            <div class="project-card bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 transition hover:shadow-md"
+                data-status="planning">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-2">
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                            🟡 計画中
+                        <span
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100">
+                            Unknown
                         </span>
                         <span class="text-xs text-gray-400">2026-02-10</span>
                     </div>
-                    
+
                     <h3 class="text-xl font-bold text-gray-900 mb-2">大人のスマホ写真芸術講座</h3>
                     <p class="text-gray-600 text-sm mb-4 line-clamp-2">
                         「一眼レフは重い」と感じ始めたシニア層向けに、最新スマホのコンピュテーショナル・フォトグラフィーを駆使した「作品づくり」を教える。
@@ -275,16 +333,23 @@
                             </div>
                         </div>
                         <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
-                            <div style="width:5%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500 transition-all duration-500"></div>
+                            <div style="width:5%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500 transition-all duration-500">
+                            </div>
                         </div>
                     </div>
 
                     <!-- Details Accordion (Simple) -->
                     <details class="group">
-                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none text-sm text-indigo-600 hover:text-indigo-800">
+                        <summary
+                            class="flex justify-between items-center font-medium cursor-pointer list-none text-sm text-indigo-600 hover:text-indigo-800">
                             <span>View Details</span>
                             <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    viewBox="0 0 24 24" width="24">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
                             </span>
                         </summary>
                         <div class="text-gray-700 mt-4 text-sm prose prose-sm max-w-none">
@@ -314,15 +379,17 @@
                 </div>
             </div>
             
-            <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 transition hover:shadow-md">
+            <div class="project-card bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 transition hover:shadow-md"
+                data-status="planning">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-2">
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                            🟡 計画中
+                        <span
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100">
+                            Unknown
                         </span>
                         <span class="text-xs text-gray-400">2026-02-10</span>
                     </div>
-                    
+
                     <h3 class="text-xl font-bold text-gray-900 mb-2">事業タイトル（例：スポクリ写真館）</h3>
                     <p class="text-gray-600 text-sm mb-4 line-clamp-2">
                         事業の簡単な概要を3行程度で記述してください。
@@ -343,16 +410,23 @@
                             </div>
                         </div>
                         <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
-                            <div style="width:10%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500 transition-all duration-500"></div>
+                            <div style="width:10%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500 transition-all duration-500">
+                            </div>
                         </div>
                     </div>
 
                     <!-- Details Accordion (Simple) -->
                     <details class="group">
-                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none text-sm text-indigo-600 hover:text-indigo-800">
+                        <summary
+                            class="flex justify-between items-center font-medium cursor-pointer list-none text-sm text-indigo-600 hover:text-indigo-800">
                             <span>View Details</span>
                             <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    viewBox="0 0 24 24" width="24">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
                             </span>
                         </summary>
                         <div class="text-gray-700 mt-4 text-sm prose prose-sm max-w-none">
@@ -389,5 +463,21 @@
         &copy; 2026 SDC Business Lab. Generated via Antigravity.
     </footer>
 
+    <script>
+        function filterProjects(status) {
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (status === 'all' || card.dataset.status === status) {
+                    card.style.display = 'block';
+                    // Optional: Add a fade-in animation
+                    card.style.opacity = '1';
+                } else {
+                    card.style.display = 'none';
+                    card.style.opacity = '0';
+                }
+            });
+        }
+    </script>
 </body>
+
 </html>
