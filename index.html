@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDC 新規事業開発ダッシュボード</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-gray-800">🚀 SDC Business Lab</h1>
+            <span class="text-xs text-gray-500">Updated: 2026-02-10 18:22</span>
+        </div>
+    </header>
+
+    <!-- Summary Stats -->
+    <div class="max-w-4xl mx-auto px-4 py-6">
+        <div class="grid grid-cols-3 gap-4 mb-8">
+            <div class="bg-white p-4 rounded-lg shadow-sm text-center border-t-4 border-yellow-400">
+                <p class="text-xs text-gray-500 uppercase">Planning</p>
+                <p class="text-2xl font-bold">2</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm text-center border-t-4 border-green-500">
+                <p class="text-xs text-gray-500 uppercase">PoC (検証中)</p>
+                <p class="text-2xl font-bold">0</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm text-center border-t-4 border-blue-500">
+                <p class="text-xs text-gray-500 uppercase">Done / Go</p>
+                <p class="text-2xl font-bold">0</p>
+            </div>
+        </div>
+
+        <!-- Projects List -->
+        <h2 class="text-lg font-semibold mb-4 text-gray-700">Project List</h2>
+        <div class="space-y-6">
+            
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 transition hover:shadow-md">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                            🟡 計画中
+                        </span>
+                        <span class="text-xs text-gray-400">2026-02-10</span>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">スポクリ写真館（出張撮影）</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                        SDC施設（テニス・ゴルフ）にて、会員様のプレー中の姿をプロカメラマンが撮影・販売するサービス。
+                    </p>
+
+                    <!-- Progress Bar -->
+                    <div class="relative pt-1 mb-4">
+                        <div class="flex mb-2 items-center justify-between">
+                            <div>
+                                <span class="text-xs font-semibold inline-block text-gray-600">
+                                    Progress
+                                </span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-xs font-semibold inline-block text-gray-600">
+                                    20%
+                                </span>
+                            </div>
+                        </div>
+                        <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
+                            <div style="width:20%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500 transition-all duration-500"></div>
+                        </div>
+                    </div>
+
+                    <!-- Details Accordion (Simple) -->
+                    <details class="group">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none text-sm text-indigo-600 hover:text-indigo-800">
+                            <span>View Details</span>
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <div class="text-gray-700 mt-4 text-sm prose prose-sm max-w-none">
+                            <h2>1. 事業概要 (Concept)</h2>
+<ul>
+<li><strong>Who:</strong> SDCの既存会員様（特にシニア層・キッズ層の親御さん）の</li>
+<li><strong>What:</strong> 「自分や孫の輝いている瞬間をきれいに残したい」という潜在ニーズを</li>
+<li><strong>How:</strong> 施設への出張撮影会イベントとして解決する。</li>
+</ul>
+<h2>2. 仮説 (Hypothesis)</h2>
+<ul>
+<li><strong>市場ニーズ:</strong> 運動会撮影のように、動きのあるスポーツ写真は素人には難しく、プロへの依頼ニーズが高い。</li>
+<li><strong>収益モデル:</strong> 撮影料無料＋写真データ販売（1枚xx円、全データxx円）。</li>
+</ul>
+<h2>3. 検証プラン (Verification)</h2>
+<ul>
+<li><strong>Action:</strong> 5月に◯◯校で無料撮影会イベントを実施し、購入率を測定。</li>
+<li><strong>KPI:</strong> 参加者の50%以上がデータ購入に至るか。</li>
+</ul>
+<h2>4. ネクストアクション</h2>
+<ul>
+<li>[x] 企画書作成</li>
+<li>[ ] 施設責任者へのヒアリング</li>
+<li>[ ] テスト撮影の実施</li>
+</ul>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 transition hover:shadow-md">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                            🟡 計画中
+                        </span>
+                        <span class="text-xs text-gray-400">2026-02-10</span>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">事業タイトル（例：スポクリ写真館）</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                        事業の簡単な概要を3行程度で記述してください。
+                    </p>
+
+                    <!-- Progress Bar -->
+                    <div class="relative pt-1 mb-4">
+                        <div class="flex mb-2 items-center justify-between">
+                            <div>
+                                <span class="text-xs font-semibold inline-block text-gray-600">
+                                    Progress
+                                </span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-xs font-semibold inline-block text-gray-600">
+                                    10%
+                                </span>
+                            </div>
+                        </div>
+                        <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
+                            <div style="width:10%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500 transition-all duration-500"></div>
+                        </div>
+                    </div>
+
+                    <!-- Details Accordion (Simple) -->
+                    <details class="group">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none text-sm text-indigo-600 hover:text-indigo-800">
+                            <span>View Details</span>
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <div class="text-gray-700 mt-4 text-sm prose prose-sm max-w-none">
+                            <h2>1. 事業概要 (Concept)</h2>
+<ul>
+<li><strong>Who:</strong> 誰の</li>
+<li><strong>What:</strong> どんな課題を</li>
+<li><strong>How:</strong> どのように解決するか</li>
+</ul>
+<h2>2. 仮説 (Hypothesis)</h2>
+<ul>
+<li>市場ニーズの仮説：</li>
+<li>収益モデルの仮説：</li>
+</ul>
+<h2>3. 検証プラン (Verification)</h2>
+<ul>
+<li><strong>Action:</strong> 何をするか</li>
+<li><strong>KPI:</strong> どうなれば成功か</li>
+</ul>
+<h2>4. ネクストアクション</h2>
+<ul>
+<li>[ ] 競合調査</li>
+<li>[ ] 顧客ヒアリング</li>
+</ul>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <footer class="max-w-4xl mx-auto px-4 py-8 text-center text-gray-400 text-xs">
+        &copy; 2026 SDC Business Lab. Generated via Antigravity.
+    </footer>
+
+</body>
+</html>
