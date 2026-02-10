@@ -1,6 +1,6 @@
 ---
 title: "大人のスマホ写真芸術講座"
-status: "planning"
+status: "spark"
 progress: 5
 updated_at: "2026-02-10"
 summary: "「一眼レフは重い」と感じ始めたシニア層向けに、最新スマホのコンピュテーショナル・フォトグラフィーを駆使した「作品づくり」を教える。"

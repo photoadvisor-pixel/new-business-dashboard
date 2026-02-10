@@ -1,6 +1,6 @@
 ---
 title: "スポサツ（子供・孫のスポーツ撮影講座）"
-status: "planning"
+status: "spark"
 progress: 10
 updated_at: "2026-02-10"
 summary: "SDCスクール会員（保護者・祖父母）向けに、動き回る子供や孫を「プロ並みに」撮る技術を教える短期集中講座。"

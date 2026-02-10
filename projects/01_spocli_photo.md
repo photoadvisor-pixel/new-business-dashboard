@@ -1,6 +1,6 @@
 ---
 title: "スポクリ写真館（出張撮影）"
-status: "planning"
+status: "spark"
 progress: 20
 updated_at: "2026-02-10"
 summary: "SDC施設（テニス・ゴルフ）にて、会員様のプレー中の姿をプロカメラマンが撮影・販売するサービス。"

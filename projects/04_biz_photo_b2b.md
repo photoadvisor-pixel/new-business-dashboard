@@ -1,6 +1,6 @@
 ---
 title: "B2B 商品撮影・広報写真研修"
-status: "planning"
+status: "spark"
 progress: 0
 updated_at: "2026-02-10"
 summary: "地域企業や個人事業主向けに、ECサイトの商品写真やSNS広報写真を「社内で綺麗に撮る」スキルを研修するB2Bサービス。"

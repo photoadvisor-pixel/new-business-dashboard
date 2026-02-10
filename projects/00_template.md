@@ -1,6 +1,6 @@
 ---
 title: "事業タイトル（例：スポクリ写真館）"
-status: "planning" # planning, poc, done, withdrawn
+status: "spark" # planning, poc, done, withdrawn
 progress: 10 # 0-100
 updated_at: "2026-02-10"
 summary: "事業の簡単な概要を3行程度で記述してください。"
